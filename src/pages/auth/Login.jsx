@@ -1,17 +1,30 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { login } from '../../services/auth';
 import '../../styles/login-register.css';
 import '../../App.css';
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-
+    const [credentials, setCredentials] = useState({ email: '', password: '' });
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        setCredentials({ email: '', password: '' });
+    }, []);
 
-    const handleSubmit = (e) => {
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setCredentials({ ...credentials, [name]: value });
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        navigate('/home')
+        try {
+            const data = await login(credentials);
+            navigate(data.userType === 'seller' ? '/seller/home' : '/buyer/home');
+        } catch (err) {
+            alert('Login Error');
+        }
     }
 
     return (
@@ -20,23 +33,26 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
                 <input 
                     type='email' 
+                    name='email'
                     placeholder='Email'
                     required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}    
+                    value={credentials.email}
+                    onChange={handleChange}    
                 />
                 <input 
-                    type="password"
-                    placeholder='password'
+                    type='password'
+                    name='password'
+                    placeholder='Password'
                     required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}  
+                    value={credentials.password}
+                    onChange={handleChange}  
                 />
                 <button type='submit'>Login</button>
+                <hr />
                 <p>Don't have an account? <Link to='/register'>Register</Link></p>
             </form>
         </div>
     )
 }
 
-export default Login
+export default Login;
