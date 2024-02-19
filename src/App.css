@@ -1,30 +1,26 @@
-header {
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-}
 
-nav ul {
-    list-style: none;
+* {
+    margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
+    box-sizing: border-box;
 }
 
-nav ul li {
-    margin: 0 10px;
+:root {
+    --primary-color: steelblue;
+    --secondary-color: lightgray;
 }
 
-nav a {
-    color: white;
+body {
+    font-family: Arial, sans-serif;
+    background-color: whitesmoke;
+}
+
+a {
     text-decoration: none;
 }
 
-main {
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
+a:hover {
+    text-decoration: underline;
 }
 
 button {
@@ -41,23 +37,10 @@ button:hover {
     background-color: var(--secondary-color);
 }
 
-footer {
-    background-color: steelblue;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
+input, select {
     width: 100%;
-}
-
-@media (max-width: 768px) {
-    nav ul li {
-        margin: 5px;
-    }
-
-    .container {
-        width: 100%;
-        padding: 0 10px;
-    }
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
 }

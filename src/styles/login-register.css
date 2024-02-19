@@ -40,9 +40,10 @@ button {
     margin-top: 10px;
 }
 
-/* hr {
+hr {
     margin: 10px;
-} */
+}
+
 @media screen and (max-width: 480px) {
     .container {
         margin: 10px;

@@ -1,0 +1,25 @@
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    /* position: sticky; */
+    /* top: 0; */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    /* margin: auto; */
+    margin: 0 10px;
+}
+
+nav a { 
+    color: white;
+    text-decoration: none;
+}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { login } from '../../services/auth';
+import authService from '../../services/auth';
 import '../../styles/login-register.css';
 import '../../App.css';
 
@@ -20,7 +20,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const data = await login(credentials);
+            const data = await authService.login(credentials);
             navigate(data.userType === 'seller' ? '/seller/home' : '/buyer/home');
         } catch (err) {
             alert('Login Error');

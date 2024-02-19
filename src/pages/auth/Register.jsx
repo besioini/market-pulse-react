@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { register } from '../../services/auth';
+import authService from '../../services/auth';
 import '../../styles/login-register.css';
 import '../../App.css';
 
@@ -35,7 +35,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await register(userData);
+            await authService.register(userData);
             console.log('Register Successful');
             navigate('/login');
         } catch (err) {
