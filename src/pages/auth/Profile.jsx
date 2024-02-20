@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
 import authService from '../../services/auth';
+import utils from '../../utility/utils';
 import '../../styles/profile.css';
+import Footer from '../../components/Footer';
 
 const Profile = () => {
     const [profile, setProfile] = useState({
@@ -58,34 +60,36 @@ const Profile = () => {
         }
     };
 
+    const userType = async() => {
+        utils.getUserType();
+    }
+
     return (
-        <>
-            <Header userType='regular'/>
-            <div className="container">
-                <h2>User Profile</h2>
-                {isEditing ? (
-                    <form onSubmit={handleSubmit} id="updateForm">
-                        <input type="text" name="firstname" value={profile.firstname} onChange={handleInputChange} placeholder="First Name" />
-                        <input type="text" name="lastname" value={profile.lastname} onChange={handleInputChange} placeholder="Last Name" />
-                        <input type="text" name="username" value={profile.username} onChange={handleInputChange} placeholder="Username" />
-                        <input type="email" name="email" value={profile.email} onChange={handleInputChange} placeholder="Email" />
-                        <button type="submit" id="updateButton">Submit Update</button>
-                    </form>
-                ) : (
-                    <div>
-                        <p>First Name:{profile.firstname}</p>
-                        <p>Last Name:{profile.lastname}</p>
-                        <p>Username:{profile.username}</p>
-                        <p>Email:{profile.email}</p>
-                        <button onClick={() => setIsEditing(true)}>Edit Profile</button>
-                    </div>
-                )}
-                <div id="delete-account">
-                    <button id="deleteButton" onClick={handleDeleteAccount}>Delete Account</button>
+        <div className="container">
+            <Header userType={userType}/>
+            <h2>User Profile</h2>
+            {isEditing ? (
+                <form onSubmit={handleSubmit} id="updateForm">
+                    <input type="text" name="firstname" value={profile.firstname} onChange={handleInputChange} placeholder="First Name" />
+                    <input type="text" name="lastname" value={profile.lastname} onChange={handleInputChange} placeholder="Last Name" />
+                    <input type="text" name="username" value={profile.username} onChange={handleInputChange} placeholder="Username" />
+                    <input type="email" name="email" value={profile.email} onChange={handleInputChange} placeholder="Email" />
+                    <button type="submit" id="updateButton">Submit Update</button>
+                </form>
+            ) : (
+                <div>
+                    <p>First Name:{profile.firstname}</p>
+                    <p>Last Name:{profile.lastname}</p>
+                    <p>Username:{profile.username}</p>
+                    <p>Email:{profile.email}</p>
+                    <button onClick={() => setIsEditing(true)}>Edit Profile</button>
                 </div>
+            )}
+            <div id="delete-account">
+                <button id="deleteButton" onClick={handleDeleteAccount}>Delete Account</button>
             </div>
-        </>
-        
+            <Footer />
+        </div>
     );
 };
 

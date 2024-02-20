@@ -11,6 +11,7 @@ const login = async (credentials) => {
             throw new Error('Login failed'); 
         }
         localStorage.setItem('authToken', response.data.token);
+        localStorage.setItem('userType', response.data.userType);
         return response.data;
     } catch (err) {
         throw new Error('Login failed');

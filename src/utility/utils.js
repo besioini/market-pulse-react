@@ -4,6 +4,7 @@ const getAuthHeaders = () => {
     return { Authorization: `Bearer ${token}` };
 };
 
+//  100% of this function is copied and pasted
 const getUserId = () => {
     const token = localStorage.getItem('authToken');
     if (token) {
@@ -16,4 +17,8 @@ const getUserId = () => {
     return null;
 };
 
-export default { getAuthHeaders, getUserId }
+const getUserType = () => {
+    return localStorage.getItem('userType');
+};
+
+export default { getAuthHeaders, getUserId, getUserType }

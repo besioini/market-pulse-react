@@ -18,13 +18,13 @@ const Header = ({ userType }) => {
                             <>
                                 <li><Link to="/buyer/home">Home</Link></li>
                                 <li><Link to="/buyer/cart">Cart</Link></li>
-                                <li><Link to="/buyer/profile">Profile</Link></li>                    
+                                <li><Link to="/profile">Profile</Link></li>                    
                             </>
                         ) : (
                             <>
-                                <li><Link to="/seller/home">Dashboard</Link></li>
-                                <li><Link to="/seller/store">My Store</Link></li>
-                                <li><Link to="/seller/profile">Profile</Link></li>      
+                                <li><Link to="/seller/home">Home</Link></li>
+                                <li><Link to="/seller/store">Store</Link></li>
+                                <li><Link to="/profile">Profile</Link></li>      
                             </>
                         )
                     }

@@ -1,22 +1,20 @@
-import { useState, useEffect }from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Search from '../../components/Search';
 import Header from '../../components/Header';
-import Filter from '../../components/Filter';
 import Product from '../../components/Product';
 import Footer from '../../components/Footer';
-import productService from '../../services/buyer/productService';
+import productService from '../../services/seller/productService';
 import '../../styles/product.css';
 import '../../App.css';
 
-const BuyerHome = () => {
+const Store = () => {
     const [products, setProducts] = useState([]);
     
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const fetchedProducts = await productService.fetchProducts();
+            const fetchedProducts = await productService.getAllProducts();
             setProducts(fetchedProducts);
         };
 
@@ -24,14 +22,18 @@ const BuyerHome = () => {
     }, []);
 
     const handleClick = (productID) => {
-        navigate(`/buyer/product/${productID}`);
+        navigate(`/seller/product/${productID}`);
     }
-    
+
+    const handleList = () => {
+        navigate('/seller/product/post')
+    }
     return (
-        <div className="container">
-            <Header userType='regular' />
-            <Search />
-            <Filter />
+        <div className="">
+            <Header userType='seller' />
+            <div id="post-product">
+                <button onClick={handleList}>List Product</button>
+            </div>
             <div id='products-container'>
                 {products.map((product) => {
                     return <Product key={product._id} product={product} onClick={handleClick}/>
@@ -43,4 +45,4 @@ const BuyerHome = () => {
     )
 }
 
-export default BuyerHome
+export default Store;
