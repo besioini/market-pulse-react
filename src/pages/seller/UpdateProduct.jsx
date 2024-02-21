@@ -60,8 +60,8 @@ const UpdateProduct = () => {
     return (
         <>
             <Header userType={userType}/>
-            <div className='container'>
-                <h2>Update Product</h2>
+            <div id="update-product">
+                {/* <h2>Update Product</h2> */}
                 <form id="product-form" onSubmit={handleSubmit}>
                     <input
                         type="text" 

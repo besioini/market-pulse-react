@@ -3,15 +3,16 @@
     background-color: white;
     border: 1px solid lightgray;
     border-radius: 8px;
-    padding: 7px;
-    margin: 7px;
+    padding: 5px;
+    margin: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
-    flex: 1 1 300px; 
+    flex: 300px; 
 }
 
 .product-card img {
-    height: 150px;
+    height: 200px;
+    width: 200px;
     border-radius: 5px; 
 }
 
@@ -23,16 +24,6 @@
     color: var(--secondary-color);
     font-size: 0.9em;
     margin: 7px;
-}
-
-.product-card button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    margin-top: 10px;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
 .product-card:hover {
@@ -53,17 +44,6 @@
     font-weight: bold;
 }
 
-
-
-
-@media (max-width: 768px) {
-    .product-card {
-        margin: 10px;
-        flex: 1 1 100%;
-    }
-}
-
-
 .product-detail {
     background-color: white;
     padding: 20px;
@@ -76,27 +56,19 @@
 .product-detail .image-container {
     display: flex;
     justify-content: center;
-    /* flex-wrap: wrap;
-    gap: 10px; */
 }
+
 #product-quantity {
     width: fit-content;
     background-color: whitesmoke;
 }
+
 .product-detail img {
-    width: 150px;
-    height: 15px;
+    width: 200px;
+    height: 200px;
     border-radius: 3px;
     margin: 5px;
 }
-
-@media (max-width: 768px) {
-    .product-detail .image-container {
-        flex-direction: column;
-    }
-}
-
-
 
 #product-form {
     padding: 20px;
@@ -104,6 +76,7 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     max-width: 600px;
     margin: auto;
+    background-color: var(--secondary-color);
 }
 
 #product-form input,
@@ -116,19 +89,14 @@
     border-radius: 4px;
 }
 
-#post-product {
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    text-align: center ;
+#update-product, #post-product {
+    margin-top: 25px;
 }
 
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
+#post-product-link {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
 }

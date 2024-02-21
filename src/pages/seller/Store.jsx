@@ -33,17 +33,19 @@ const Store = () => {
     const userType = utils.getUserType();
 
     return (
-        <div className="">
+        <div>
             <Header userType={userType} />
             <div id="post-product">
-                <button onClick={handleList}>List Product</button>
+                <button onClick={handleList}>List a New Product</button>
             </div>
+            <hr/>
             <div id='products-container'>
                 {products.map((product) => {
                     return <Product key={product._id} product={product} onClick={handleClick}/>
                 })}
 
             </div>
+            <hr />
             <Footer />
         </div>
     )

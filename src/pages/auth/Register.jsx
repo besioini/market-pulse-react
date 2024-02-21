@@ -45,7 +45,7 @@ const Register = () => {
 
     return (
         <div className='container'>
-            <h2>Create account</h2>
+            <h3>Create account</h3>
             <form onSubmit={handleSubmit}>
                 <input 
                     type='text'

@@ -60,7 +60,7 @@ const ProductInfo = () => {
                 <p>Category: {product.category}</p>
                 <p>Quantity: {product.quantity}</p>
                 <img src={product.imageUrl} alt={product.name} />
-                <button onClick={handleUpdate}>Edit</button>
+                <button onClick={handleUpdate}>Update</button>
                 <button onClick={handleDelete}>Delete</button>
             </div>
             <Footer />        

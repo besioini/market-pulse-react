@@ -10,8 +10,20 @@
     --secondary-color: lightgray;
 }
 
+#root {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: block;
+}
+
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    height: 70vh;
     background-color: whitesmoke;
 }
 
@@ -23,14 +35,8 @@ a:hover {
     text-decoration: underline;
 }
 
-button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px 0;
-    border-radius: 5px;
-    cursor: pointer;
+hr {
+    margin: 10px;
 }
 
 button:hover {
@@ -45,13 +51,13 @@ input, select {
     border-radius: 5px;
 }
 
-/* @media (max-width: 768px) {
-    nav ul li {
-        margin: 5px;
-    }
+#welcome, #search-bar { 
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
 
-    .container {
-        width: 100%;
-        padding: 0 10px;
-    }
-} */
+#search-bar input {
+    background-color: var(--secondary-color);
+}

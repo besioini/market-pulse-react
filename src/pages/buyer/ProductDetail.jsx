@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import productService from '../../services/buyer/productService';
 import cartService from '../../services/buyer/cartService';
 import utils from '../../utility/utils';
@@ -64,7 +65,8 @@ const ProductDetail = () => {
                     onChange={handleQuantityChange} 
                 />
                 <button onClick={handleAddToCart}>Add to cart</button>
-            </div>        
+            </div>
+            <Footer />      
         </>
 
     )

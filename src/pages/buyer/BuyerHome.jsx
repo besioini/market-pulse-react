@@ -2,7 +2,6 @@ import { useState, useEffect }from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '../../components/Search';
 import Header from '../../components/Header';
-import Filter from '../../components/Filter';
 import Product from '../../components/Product';
 import Footer from '../../components/Footer';
 import productService from '../../services/buyer/productService';
@@ -31,10 +30,9 @@ const BuyerHome = () => {
     const userType = utils.getUserType();
 
     return (
-        <div className="container">
+        <>
             <Header userType={userType}/>
             <Search />
-            <Filter />
             <div id='products-container'>
                 {products.map((product) => {
                     return <Product key={product._id} product={product} onClick={handleClick}/>
@@ -42,8 +40,8 @@ const BuyerHome = () => {
 
             </div>
             <Footer />
-        </div>
+        </>
     )
 }
 
-export default BuyerHome
+export default BuyerHome;

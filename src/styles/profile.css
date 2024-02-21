@@ -1,9 +1,18 @@
 
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+    padding: 10px 20px;
+    margin: 10px auto;
+    display: block;
+}
+
 #profile-container, #updateForm {
     padding: 15px;
-    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 #updateForm {
@@ -20,18 +29,15 @@
     padding: 10px;
 }
 
-#updateButton {
-    display: block;
-    margin: auto;
-}
-
 #delete-account {
     text-align: center;
-    width: 100%;
-    padding: 10px;
     margin-top: 20px;
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#profile-info, #profile-info p {
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 5px;
 }

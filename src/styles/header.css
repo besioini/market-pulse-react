@@ -3,8 +3,7 @@ header {
     color: white;
     text-align: center;
     padding: 1rem 0;
-    /* position: sticky; */
-    /* top: 0; */
+    margin-top: 10px;
 }
 
 nav ul {
@@ -15,7 +14,6 @@ nav ul {
 }
 
 nav ul li {
-    /* margin: auto; */
     margin: 0 10px;
 }
 

@@ -45,6 +45,7 @@ const Cart = () => {
                     </div>
                 ))}
             </div>
+            <div id="cart-checkout"><button>Checkout</button></div>
             <Footer />
         </>
     );
