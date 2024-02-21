@@ -20,8 +20,8 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const data = await authService.login(credentials);
-            navigate(data.userType === 'seller' ? '/seller/home' : '/buyer/home');
+            const response = await authService.login(credentials);
+            navigate(response.userType === 'seller' ? '/seller/home' : '/buyer/home');
         } catch (err) {
             alert('Login Error');
         }

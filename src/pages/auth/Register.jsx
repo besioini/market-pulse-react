@@ -35,9 +35,9 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await authService.register(userData);
+            const response = await authService.register(userData);
             console.log('Register Successful');
-            navigate('/login');
+            navigate(response.userType === 'seller' ? '/seller/home' : '/buyer/home');
         } catch (err) {
             alert('Register Error');
         }

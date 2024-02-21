@@ -6,7 +6,10 @@ const baseURL = 'http://localhost:5000/api/users';
 
 const login = async (credentials) => {
     try {
-        const response = await axios.post(`${baseURL}/login`, credentials);
+        const response = await axios.post(
+            `${baseURL}/login`, 
+            credentials
+        );
         if (!response.data.token) {
             throw new Error('Login failed'); 
         }
@@ -20,11 +23,15 @@ const login = async (credentials) => {
 
 const register = async (userData) => {
     try {
-        const response = await axios.post(`${baseURL}/register`, userData);
+        const response = await axios.post(
+            `${baseURL}/register`, 
+            userData
+        );
         if (!response.data.token) {
             throw new Error('Registration failed'); 
         }
         localStorage.setItem('authToken', response.data.token);
+        localStorage.setItem('userType', response.data.userType);
         return response.data;
     } catch (err) {
         throw new Error('Registration failed');

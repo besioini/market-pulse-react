@@ -36,9 +36,11 @@ const PostProduct = () => {
         }
     }
 
+    const userType = utils.getUserType();
+
     return (
         <div id="post-product" className='container'>
-            <Header />
+            <Header userType={userType}/>
             {/* <h2>List a New Product</h2> */}
             <form id="product-form" onSubmit={handleSubmit}>
                 <input 

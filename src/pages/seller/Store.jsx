@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import Product from '../../components/Product';
 import Footer from '../../components/Footer';
 import productService from '../../services/seller/productService';
+import utils from '../../utility/utils';
 import '../../styles/product.css';
 import '../../App.css';
 
@@ -28,9 +29,12 @@ const Store = () => {
     const handleList = () => {
         navigate('/seller/product/post')
     }
+
+    const userType = utils.getUserType();
+
     return (
         <div className="">
-            <Header userType='seller' />
+            <Header userType={userType} />
             <div id="post-product">
                 <button onClick={handleList}>List Product</button>
             </div>

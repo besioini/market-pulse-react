@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import productService from '../../services/seller/productService';
+import utils from '../../utility/utils';
 import '../../App.css';
 import '../../styles/product.css';
 
@@ -46,9 +47,12 @@ const ProductInfo = () => {
             alert('Product removal failure');
         }
     }
+
+    const userType = utils.getUserType();
+
     return(
         <>
-            <Header />
+            <Header userType={userType}/>
             <div className="product-detail">
                 <h2>{product.name}</h2>
                 <p>{product.description}</p>

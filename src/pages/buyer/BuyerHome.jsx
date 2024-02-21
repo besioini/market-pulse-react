@@ -6,6 +6,7 @@ import Filter from '../../components/Filter';
 import Product from '../../components/Product';
 import Footer from '../../components/Footer';
 import productService from '../../services/buyer/productService';
+import utils from '../../utility/utils';
 import '../../styles/product.css';
 import '../../App.css';
 
@@ -27,9 +28,11 @@ const BuyerHome = () => {
         navigate(`/buyer/product/${productID}`);
     }
     
+    const userType = utils.getUserType();
+
     return (
         <div className="container">
-            <Header userType='regular' />
+            <Header userType={userType}/>
             <Search />
             <Filter />
             <div id='products-container'>

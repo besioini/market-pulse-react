@@ -1,7 +1,7 @@
 import axios from 'axios';
 import utils from '../../utility/utils.js';
 
-const API_BASE_URL = 'http://localhost:5000/api/cart';
+const baseURL = 'http://localhost:5000/api/cart';
 
 
 const addToCart = async (productId, quantity) => {
@@ -10,7 +10,7 @@ const addToCart = async (productId, quantity) => {
 
     try {
         await axios.post(
-            `${API_BASE_URL}/addToCart`, 
+            `${baseURL}/addToCart`, 
             { userId, productId, quantity }, 
             { headers: utils.getAuthHeaders() }
         );
@@ -26,7 +26,7 @@ const getCart = async () => {
 
     try {
         const response = await axios.get(
-            `${API_BASE_URL}/getCart/${userId}`, 
+            `${baseURL}/getCart/${userId}`, 
             { headers: utils.getAuthHeaders() }
         );
         return response.data;
@@ -36,19 +36,15 @@ const getCart = async () => {
     }
 };
 
-const removeFromCart = async (productId) => {
-    const userId = utils.getUserId();
-    if (!userId) throw new Error('User not authenticated');
-
+const removeFromCart = async (itemId) => {
     try {
         await axios.delete(
-            `${API_BASE_URL}/removeFromCart/${productId}`, 
-            { data: { userId }, 
-            headers: utils.getAuthHeaders() }
+            `${baseURL}/removeFromCart/${itemId}`, 
+             { headers: utils.getAuthHeaders() }
         );
-    } catch (error) {
-        console.error('Error removing item from cart:', error);
-        throw error;
+    } catch (err) {
+        console.error('Error removing item from cart:', err.message);
+        throw err;
     }
 };
 
@@ -58,13 +54,13 @@ const updateCartItem = async (productId, quantity) => {
 
     try {
         await axios.put(
-            `${API_BASE_URL}/updateCartItem`, 
+            `${baseURL}/updateCartItem`, 
             { userId, productId, quantity }, 
             { headers: utils.getAuthHeaders() }
         );
-    } catch (error) {
-        console.error('Error updating cart item:', error);
-        throw error;
+    } catch (err) {
+        console.error('Error updating cart item:', err.message);
+        throw err;
     }
 };
 

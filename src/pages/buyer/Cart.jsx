@@ -20,15 +20,12 @@ const Cart = () => {
         fetchCartItems();
     }, []);
 
-    const handleChangeQuantity = async (itemId, newQuantity) => {
-
-    };
-
     const handleRemoveFromCart = async (itemId) => {
         if (window.confirm('Are you sure you want to remove this item from the cart?')) {
             try {
                 await cartService.removeFromCart(itemId);
-                setCartItems(cartItems.filter(item => item.productId._id !== itemId));
+                setCartItems(cartItems.filter(item => item._id !== itemId));
+                alert('Item removed successfully');
             } catch (error) {
                 console.error('Failed to remove item from cart:', error);
                 alert('Failed to remove item from cart.');
@@ -38,18 +35,13 @@ const Cart = () => {
 
     return (
         <>
-            <Header userType='regular'/>
+            <Header userType={'regular'} />
             <div className="cart-container">
-                {cartItems.map(item => (
-                    <div key={item.productId._id} className="cart-item">
+                {cartItems.map((item) => (
+                    <div key={item._id} className="cart-item">
                         <h3>{item.productId.name}</h3>
-                        <input
-                            type="number"
-                            value={item.quantity}
-                            onChange={(e) => handleChangeQuantity(item.productId._id, e.target.value)}
-                            min="1"
-                        />
-                        <button onClick={() => handleRemoveFromCart(item.productId._id)}>Remove</button>
+                        <p>Quantity: {item.quantity}</p>
+                        <button onClick={() => handleRemoveFromCart(item._id)}>Remove</button>
                     </div>
                 ))}
             </div>

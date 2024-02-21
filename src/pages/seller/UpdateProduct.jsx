@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import productService from '../../services/seller/productService';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import utils from '../../utility/utils';
 
 
 const UpdateProduct = () => {
@@ -54,9 +55,11 @@ const UpdateProduct = () => {
         }
     };
 
+    const userType = utils.getUserType();
+
     return (
         <>
-            <Header />
+            <Header userType={userType}/>
             <div className='container'>
                 <h2>Update Product</h2>
                 <form id="product-form" onSubmit={handleSubmit}>

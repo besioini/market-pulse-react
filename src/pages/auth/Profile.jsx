@@ -60,9 +60,7 @@ const Profile = () => {
         }
     };
 
-    const userType = async() => {
-        utils.getUserType();
-    }
+    const userType = utils.getUserType();
 
     return (
         <div className="container">
