@@ -1,11 +1,7 @@
 import axios from 'axios';
 import utils from '../utility/utils';
 
-const baseURL = 'http://localhost:5000/api/users';
-
-// eslint-disable-next-line no-undef
-// const baseURL = process.env.REACT_APP_BASE_URL;
-// const userURL = `${baseURL}/users`;
+const baseURL = 'https://market-pulse-server.vercel.app/users';
 
 const login = async (credentials) => {
     try {
