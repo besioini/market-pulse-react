@@ -1,7 +1,7 @@
 import axios from 'axios';
 import utils from '../../utility/utils';
 
-const baseURL = 'http://localhost:5000/api/products';
+const baseURL = 'https://market-pulse-server.vercel.app/api/products';
 
 const addProduct = async (productData) => {
     try {

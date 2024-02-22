@@ -1,7 +1,7 @@
 import axios from 'axios';
 import utils from '../../utility/utils.js';
 
-const baseURL = 'http://localhost:5000/api/cart';
+const baseURL = 'https://market-pulse-server.vercel.app/api/cart';
 
 
 const addToCart = async (productId, quantity) => {

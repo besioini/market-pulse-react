@@ -1,7 +1,7 @@
 import axios from 'axios';
 import utils from '../utility/utils';
 
-const baseURL = 'https://market-pulse-server.vercel.app/users';
+const baseURL = 'https://market-pulse-server.vercel.app/api/users';
 
 const login = async (credentials) => {
     try {
