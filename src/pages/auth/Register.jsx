@@ -11,7 +11,7 @@ const Register = () => {
         username: '',
         email: '',
         password: '',
-        type: 'regular'
+        type: ''
     });
 
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Register = () => {
             username: '',
             email: '',
             password: '',
-            type: 'regular'
+            type: ''
         });
     }, []);
 
@@ -89,6 +89,7 @@ const Register = () => {
                     value={userData.type}
                     onChange={handleChange}
                     required>
+                    <option value="">Select Account Type</option>
                     <option value="regular">Regular</option>
                     <option value="seller">Seller</option>
                 </select>

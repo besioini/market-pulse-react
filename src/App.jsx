@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import BuyerHome from './pages/buyer/BuyerHome';
@@ -17,6 +17,7 @@ function App() {
     return (
         <Router>
             <Routes>
+                <Route path="/" element={<Navigate replace to="/login" />} /> 
                 <Route path="/login" element={<Login />} />   
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile />} />
